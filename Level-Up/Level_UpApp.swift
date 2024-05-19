@@ -11,7 +11,7 @@ import SwiftUI
 struct Level_UpApp: App {
     var body: some Scene {
         WindowGroup {
-            Exercise_Prompt()
+            LoginView()
         }
     }
 }
