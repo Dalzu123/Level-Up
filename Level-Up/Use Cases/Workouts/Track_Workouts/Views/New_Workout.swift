@@ -125,12 +125,12 @@ struct New_Workout: View {
         //@State private var typeOfWorkoutSelected = ""
         NavigationView {
             VStack {
-                Image("ProgressLogo1")
+               /* Image("ProgressLogo1")
                     .resizable() // Allows the image to be resized
                     .aspectRatio(contentMode: .fit) // Adjusts the aspect ratio of the image
                     .frame(width: 400, height: 200) // Sets the frame size of the image
                     .clipped()
-                    
+                    */
                     
                     Text("Type of Strength Training")
                         .padding(.top, 10)
