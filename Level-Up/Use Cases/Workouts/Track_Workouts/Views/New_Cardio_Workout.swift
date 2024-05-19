@@ -23,6 +23,9 @@ struct New_Cardio_Workout: View {
     @State var milesDecimalCount = [".1", ".2", ".3", ".4", ".5", ".6", ".7", ".8",".9"]
     @State var distanceMeasurement = ""
     @State var distanceType = ["mi", "km"]
+    @State var isButtonTapped = false
+    @State var username = ""
+    
     var body: some View {
         
         Text("Workout")
@@ -49,7 +52,7 @@ struct New_Cardio_Workout: View {
                     Text($0)
                 }
             }.pickerStyle(WheelPickerStyle())
-        }.padding(.horizontal)
+        }//.padding(.horizontal)
 
 
 
@@ -70,7 +73,20 @@ struct New_Cardio_Workout: View {
                 }
             }.pickerStyle(WheelPickerStyle())
         }.padding(.horizontal)
-
+        Text("Email (Username soon)")
+        TextField("Email", text: $username)
+        //Submit workout via API call
+        Button("Submit Workout") {
+            isButtonTapped = true
+            /*apiService.postData(name: <#T##String#>, muscles: <#T##String#>, Workout: <#T##String#>, Sets: <#T##Int#>, Reps: <#T##Int#>, Weight: <#T##Double#>)*/
+            /*apiService.postData(name: name, muscles: musclesInput, Workout: workoutsInput, Sets: setsInput, Reps: repsInput, Weight: weightInput)
+            */
+            
+        }
+        .padding()
+        .background(Color.black)
+        .shadow(color: .gray, radius: 3, x: 0, y: 2)
+        .border(Color.blue, width: 2)
 
     }
 }

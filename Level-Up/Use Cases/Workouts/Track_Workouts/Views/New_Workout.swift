@@ -24,7 +24,7 @@ struct New_Workout: View {
     @State private var timeInput = ""
     @State private var selection = "Back"
     @State private var selection1 = "Deadlift"
-    @State private var isButtonTapeed: Bool = false
+    @State private var isButtonTapped: Bool = false
     @State private var apiResponse: String = ""
     @State private var weightMeasurementInput = ""
     @State private var name = "Frank Sinatra"
@@ -33,6 +33,7 @@ struct New_Workout: View {
     @State private var cardioTypeSelected = ""
     //@State private var cardioTime = ""
     @State private var typeOfWorkoutSelected = ""
+    @State private var username = ""
     
 
     
@@ -329,10 +330,11 @@ struct New_Workout: View {
                             .pickerStyle(.menu)
                             //.padding()
                         }
-                        
+                Text("Email (Username soon)")
+                TextField("Email", text: $username)
                         //Submit workout via API call
                         Button("Submit Workout") {
-                            isButtonTapeed = true
+                            isButtonTapped = true
                             /*apiService.postData(name: <#T##String#>, muscles: <#T##String#>, Workout: <#T##String#>, Sets: <#T##Int#>, Reps: <#T##Int#>, Weight: <#T##Double#>)*/
                             /*apiService.postData(name: name, muscles: musclesInput, Workout: workoutsInput, Sets: setsInput, Reps: repsInput, Weight: weightInput)
                             */
@@ -347,7 +349,7 @@ struct New_Workout: View {
                             // Display data from the API response
                         }*/
                         
-                        if isButtonTapeed{
+                        if isButtonTapped{
                             /*Text("Muscle: \(musclesInput),Workout: \(workoutsInput), Sets: \(setsInput), Reps: \(repsInput), Weight: \(weightInput)")
                              .font(.title)
                              .padding()
