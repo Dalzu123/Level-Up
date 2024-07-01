@@ -26,10 +26,18 @@ struct Exercise_Prompt: View {
                     .clipped()*/
                 //Text("Hello, Gym Rat!")
                 Text("Type of Exercise")
+                    .bold()
                     .padding()
                 NavigationLink(destination:New_Cardio_Workout()) {Text("Cardio")}
                     .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
                 NavigationLink(destination:New_Workout()) {Text("Strength Training")}
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
                 /*Picker("", selection: $typeOfExerciseSelected)
                 {
                     ForEach(exerciseType, id: \.self) {

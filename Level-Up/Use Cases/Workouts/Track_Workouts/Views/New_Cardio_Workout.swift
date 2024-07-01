@@ -28,52 +28,55 @@ struct New_Cardio_Workout: View {
     
     var body: some View {
         
-        Text("Workout")
+        Text("Workout?")
+            .bold()
         Picker("Select Exercise", selection: $cardioWorkoutsSelection)
         {
             ForEach(cardioWorkouts, id: \.self) {
                 Text($0)
             }
         }
-        Text("Distance")
-        HStack {
-            Picker("", selection: $miles){
-                ForEach(0..<27, id: \.self) { i in
-                    Text("\(i)")
-                }
-            }.pickerStyle(WheelPickerStyle())
-            Picker("", selection: $milesDecimal){
-                ForEach(milesDecimalCount, id: \.self) { i in
-                    Text("\(i)")
-                }
-            }.pickerStyle(WheelPickerStyle())
-            Picker("", selection: $distanceMeasurement){
-                ForEach(distanceType, id: \.self) {
-                    Text($0)
-                }
-            }.pickerStyle(WheelPickerStyle())
-        }//.padding(.horizontal)
-
-
-
-        HStack {
-            Picker("", selection: $hours){
-                ForEach(0..<27, id: \.self) { i in
-                    Text("\(i) hours").tag(i)
-                }
-            }.pickerStyle(WheelPickerStyle())
-            Picker("", selection: $minutes){
-                ForEach(0..<60, id: \.self) { i in
-                    Text("\(i) min").tag(i)
-                }
-            }.pickerStyle(WheelPickerStyle())
-            Picker("", selection: $seconds){
-                ForEach(0..<60, id: \.self) { i in
-                    Text("\(i) seconds").tag(i)
-                }
-            }.pickerStyle(WheelPickerStyle())
-        }.padding(.horizontal)
-        Text("Email (Username soon)")
+        VStack {
+            Text("Distance:")
+                .bold()
+            HStack {
+                Picker("", selection: $miles){
+                    ForEach(0..<27, id: \.self) { i in
+                        Text("\(i)")
+                    }
+                }.pickerStyle(WheelPickerStyle())
+                Picker("", selection: $milesDecimal){
+                    ForEach(milesDecimalCount, id: \.self) { i in
+                        Text("\(i)")
+                    }
+                }.pickerStyle(WheelPickerStyle())
+                Picker("", selection: $distanceMeasurement){
+                    ForEach(distanceType, id: \.self) {
+                        Text($0)
+                    }
+                }.pickerStyle(WheelPickerStyle())
+            }//.padding(.horizontal)
+            
+            HStack {
+                Picker("", selection: $hours){
+                    ForEach(0..<27, id: \.self) { i in
+                        Text("\(i) hours").tag(i)
+                    }
+                }.pickerStyle(WheelPickerStyle())
+                Picker("", selection: $minutes){
+                    ForEach(0..<60, id: \.self) { i in
+                        Text("\(i) min").tag(i)
+                    }
+                }.pickerStyle(WheelPickerStyle())
+                Picker("", selection: $seconds){
+                    ForEach(0..<60, id: \.self) { i in
+                        Text("\(i) seconds").tag(i)
+                    }
+                }.pickerStyle(WheelPickerStyle())
+            }//.padding(.horizontal)
+        }
+        Text("Email (Will become Username)")
+            .bold()
         TextField("Email", text: $username)
         //Submit workout via API call
         Button("Submit Workout") {

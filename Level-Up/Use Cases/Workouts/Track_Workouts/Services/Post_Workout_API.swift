@@ -15,13 +15,13 @@ struct PostDataResponse: Decodable {
     // Add other properties as needed
 }
 
-func postData(name: String, muscles: String, Workout: String, Sets: Int, Reps: Int, Weight: Double) {
+func postData(name: String, typeOfWorkoutSelected: String, muscles: String, Workout: String, Sets: Int, Reps: Int, Weight: Double, weightMeasurementInput: String, username: String) {
     // Replace with your API endpoint URL
     let apiUrl = URL(string: "http://71.191.77.247/workout")!
     
    /* let postData = try? JSONSerialization.data(withJSONObject: ["nameParam": "DiegoTest", "musclesParam" : "Shoulders", "WorkoutsParam": "Barbell Shoulder Press", "SetsParam" : 5, "RepsParam" : 5, "WeightParam": 105], options: [])*/
     
-    let postData = try? JSONSerialization.data(withJSONObject: ["nameParam": name, "musclesParam" : muscles, "WorkoutsParam": Workout, "SetsParam" : Sets, "RepsParam" : Reps, "WeightParam": Weight], options: [])
+    let postData = try? JSONSerialization.data(withJSONObject: ["nameParam": name, "ExerciseTypeParam": typeOfWorkoutSelected, "musclesParam" : muscles, "WorkoutsParam": Workout, "SetsParam" : Sets, "RepsParam" : Reps, "WeightParam": Weight, "weightMeasurementParam": weightMeasurementInput, "usernameparam": username ], options: [])
     
     // Create a URLRequest with the API URL
     var request = URLRequest(url: apiUrl)
